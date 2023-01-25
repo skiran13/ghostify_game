@@ -14,11 +14,13 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:src="@mipmap/uottawa"
+        app:layout_constraintBottom_toTopOf="@+id/button1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:shapeAppearanceOverlay="@style/roundimageview"
-        tools:layout_editor_absoluteY="102dp"></com.google.android.material.imageview.ShapeableImageView>
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.457"
+        app:shapeAppearanceOverlay="@style/roundimageview"></com.google.android.material.imageview.ShapeableImageView>
 
     <Button
         android:id="@+id/button1"
@@ -30,11 +32,12 @@
         android:layout_alignParentRight="false"
         android:layout_centerInParent="true"
         android:shadowColor="#000000"
-        android:text="launch game"
+        android:text="LAUNCH GAME"
         app:cornerRadius="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="551dp" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.704" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
