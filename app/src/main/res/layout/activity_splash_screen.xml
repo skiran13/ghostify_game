@@ -6,38 +6,119 @@
     android:layout_height="match_parent"
     tools:context=".SplashScreenActivity">
 
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/iv_uottawa"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
+    <ImageView
+        android:id="@+id/ghost_image"
+        android:layout_width="400dp"
+        android:layout_height="400dp"
+        android:src="@mipmap/ic_channel_foreground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.454"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.364" />
 
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:src="@mipmap/uottawa"
+    <TextView
+        android:id="@+id/welcome_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="343dp"
+        android:fontFamily="@font/amatica_sc_bold"
+        android:text="Welcome To"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/ghost_image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/ghost_image"
+        app:layout_constraintVertical_bias="0.964" />
+
+    <ImageView
+        android:id="@+id/iv_uottawa"
+        android:layout_width="411dp"
+        android:layout_height="40dp"
+        android:src="@drawable/uottawa_hor_white"
+        app:layout_constraintBottom_toTopOf="@+id/ghost_image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.805" />
+
+    <TextView
+        android:id="@+id/developed_by"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/mystery_quest"
+        android:text="Developed by"
         app:layout_constraintBottom_toTopOf="@+id/button1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.457"
-        app:shapeAppearanceOverlay="@style/roundimageview"></com.google.android.material.imageview.ShapeableImageView>
+        app:layout_constraintTop_toBottomOf="@+id/ghost_image"
+        app:layout_constraintVertical_bias="0.177" />
 
     <Button
         android:id="@+id/button1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@id/iv_uottawa"
         android:layout_alignParentLeft="false"
         android:layout_alignParentTop="false"
         android:layout_alignParentRight="false"
         android:layout_centerInParent="true"
-        android:shadowColor="#000000"
         android:text="LAUNCH GAME"
+        android:theme="@style/Theme.Material3.Dark"
         app:cornerRadius="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.704" />
+        app:layout_constraintTop_toBottomOf="@+id/ghost_image"
+        app:layout_constraintVertical_bias="0.541" />
+
+    <TextView
+        android:id="@+id/game_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="330dp"
+        android:layout_marginBottom="11dp"
+        android:fontFamily="@font/mystery_quest"
+        android:text="GHOSTICON"
+        android:textColor="@color/white"
+        android:textSize="40sp"
+        app:layout_constraintBottom_toBottomOf="@+id/ghost_image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/ghost_image"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/surya"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/mystery_quest"
+        android:text="Surya Kiran Suresh"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/akshay"
+        app:layout_constraintHorizontal_bias="0.718"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ghost_image"
+        app:layout_constraintVertical_bias="0.213" />
+
+    <TextView
+        android:id="@+id/akshay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="60dp"
+        android:fontFamily="@font/mystery_quest"
+        android:text="Akshay Srinivasan"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ghost_image"
+        app:layout_constraintVertical_bias="0.213" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
