@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainMenuActivity">
+
     <TextView
         android:id="@+id/welcome_text"
         android:layout_width="wrap_content"
@@ -14,6 +15,7 @@
         android:text="Welcome To"
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="@+id/ghost_image"
+        app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/ghost_image"
@@ -29,7 +31,20 @@
         app:layout_constraintHorizontal_bias="0.454"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.253" />
+        app:layout_constraintVertical_bias="0.27" />
+
+    <ImageView
+        android:id="@+id/iv_uottawa"
+        android:layout_width="411dp"
+        android:layout_height="40dp"
+        android:src="@drawable/uottawa_hor_white"
+        app:layout_constraintBottom_toTopOf="@+id/ghost_image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.646" />
+
 
 
     <TextView
@@ -38,13 +53,13 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="330dp"
         android:layout_marginBottom="11dp"
-        android:fontFamily="@font/mystery_quest"
+        android:fontFamily="@font/amatica_sc_bold"
         android:text="GHOSTICON"
         android:textColor="@color/white"
         android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="@+id/ghost_image"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/ghost_image"
         app:layout_constraintVertical_bias="0.75" />
@@ -55,42 +70,55 @@
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.903">
+        app:layout_constraintVertical_bias="0.95">
 
         <Button
             android:id="@+id/new_game_button"
+            style="@style/buttonStyling"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginBottom="20dp"
             android:text="New Game"
-            android:textSize="20sp"
+
             app:layout_constraintBottom_toTopOf="@+id/button_second"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
         <Button
             android:id="@+id/high_score_button"
+            style="@style/buttonStyling"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
             android:text="Prev High Score"
-            android:textSize="20sp"
+
             app:layout_constraintBottom_toTopOf="@+id/button_third"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
         <Button
             android:id="@+id/go_back_button"
+            style="@style/buttonStyling"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="Go Back"
-            android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent" />
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/high_score_testing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:text="Testing"
+        app:layout_constraintBottom_toTopOf="@+id/ghost_image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.107"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
