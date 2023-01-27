@@ -69,7 +69,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/mystery_quest"
         android:text="Developed by"
-        app:layout_constraintBottom_toTopOf="@+id/button1"
+        app:layout_constraintBottom_toTopOf="@+id/launch_game"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"

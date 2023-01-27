@@ -49,14 +49,6 @@
         app:layout_constraintTop_toTopOf="@+id/ghost_image"
         app:layout_constraintVertical_bias="0.75" />
 
-    <TextView
-        android:id="@+id/textview_Score"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:textColor="#EC4009"
-        android:textSize="30sp" />
-
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
