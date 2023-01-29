@@ -19,7 +19,7 @@ class HighScoreActivity : AppCompatActivity() {
         setContentView(R.layout.activity_high_score)
 
 //        Getting Value from memory
-        val sharedPref = getPreferences(Context.MODE_PRIVATE)
+        val sharedPref = getSharedPreferences("game.HIGHSCORE",Context.MODE_PRIVATE)
         val highscore = sharedPref.getInt("HIGHSCORE",0)
 
 //        Set highscore on the screen dynamically from the memory
@@ -50,9 +50,9 @@ class HighScoreActivity : AppCompatActivity() {
 //        Go back button functionality
         var goBack : Button = findViewById(R.id.go_back_high_score_to_main_menu)
         goBack.setOnClickListener {
-            val i = Intent(this, MainMenuActivity::class.java)
-            startActivity(i)
+            startActivity(Intent(this, MainMenuActivity::class.java))
             overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out,)
+            finish()
         }
     }
 }

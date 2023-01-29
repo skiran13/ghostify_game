@@ -8,4 +8,6 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="material_dynamic_tertiary20">#322C4C</color>
+    <color name="success">#285430</color>
+    <color name="fail">#a70000</color>
 </resources>
