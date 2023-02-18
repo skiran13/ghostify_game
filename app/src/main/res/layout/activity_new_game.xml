@@ -54,15 +54,16 @@
 
         <TextView
             android:id="@+id/timer_text"
-            android:layout_width="150dp"
-            android:visibility="invisible"
-            android:layout_height="wrap_content"
+            android:layout_width="174dp"
+            android:layout_height="56dp"
             android:layout_gravity="center_vertical"
             android:background="@drawable/timer_border"
             android:fontFamily="@font/amatica_sc_bold"
-            android:textSize="30sp"
+            android:gravity="center"
             android:textColor="@color/black"
+            android:textSize="30sp"
             android:textStyle="bold"
+            android:visibility="invisible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -71,7 +72,7 @@
             android:id="@+id/hotizontal_rule2"
             android:visibility="invisible"
             android:layout_width="30dp"
-            android:layout_height="5dp"
+            android:layout_height="7dp"
             android:layout_gravity="center_vertical"
             android:layout_weight="1"
             android:background="@color/white" />

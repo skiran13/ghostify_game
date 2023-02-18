@@ -15,6 +15,7 @@ import java.util.concurrent.TimeUnit
 import nl.dionsegijn.konfetti.core.models.Size
 import org.w3c.dom.Text
 
+//  This activity is used to show the highscore of the user
 class HighScoreActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

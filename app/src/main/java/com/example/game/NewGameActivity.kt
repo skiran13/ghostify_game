@@ -16,7 +16,13 @@ import kotlin.random.Random
 
 class NewGameActivity : AppCompatActivity() {
 
-
+    lateinit var audio : Intent
+    lateinit var countDownTimer : CountDownTimer
+    override fun onStop() {
+        super.onStop()
+        countDownTimer.cancel()
+        stopService(audio)
+    }
 //    var lateinit:Int imageWidth
 //    var lateinit:Int imageHeight
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,7 +42,6 @@ class NewGameActivity : AppCompatActivity() {
 //        instruction_text.text = intent.extras!!.getString("key")
 
         var gameStarted = false
-        lateinit var countDownTimer: CountDownTimer
         val initialCountDown: Long = 20000
         val countDownInterval: Long = 1000
         var timeLeft_text : TextView = findViewById(R.id.timer_text)
@@ -77,8 +82,10 @@ class NewGameActivity : AppCompatActivity() {
 //                    timeLeft_text.text = "Game Over !"
                     end_game()
                     println("No. of ghosts:$count")
+                    stopService(audio)
                 }
             }
+
             countDownTimer.start()
             gameStarted = true
         }
@@ -148,6 +155,9 @@ class NewGameActivity : AppCompatActivity() {
             println("Image height: ${imageView.measuredHeight}")
             start_game()
             toggleImage()
+            audio = Intent(this, BackgroundService::class.java)
+            startService(audio)
+
         }
 //        imageView.setImageResource(R.mipmap.ic_channel_foreground)
 //        imageWidth = imageView.width
