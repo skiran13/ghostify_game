@@ -13,7 +13,7 @@ import android.view.animation.Animation
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import kotlin.random.Random
-
+// This activity handles all the events that occur when the user starts the game
 class NewGameActivity : AppCompatActivity() {
 
     lateinit var audio : Intent
@@ -38,26 +38,29 @@ class NewGameActivity : AppCompatActivity() {
     override fun onWindowFocusChanged(hasFocus: Boolean) {
         super.onWindowFocusChanged(hasFocus)
 
+        // All the necessary isntance variables are declared and the image is set to ImageView
+
         var instruction_text : TextView = findViewById(R.id.instruction_text)
 //        instruction_text.text = intent.extras!!.getString("key")
 
         var gameStarted = false
-        val initialCountDown: Long = 20000
+        val initialCountDown: Long = 60000
         val countDownInterval: Long = 1000
         var timeLeft_text : TextView = findViewById(R.id.timer_text)
         var count = 0
         val parentLayout = findViewById<RelativeLayout>(R.id.game_screen_layout)
         val imageView = ImageView(this)
         imageView.setImageResource(R.mipmap.ic_channel_foreground)
-        // Randomly select an image
+
 //        val randomIndex = Random.nextInt(imageIds.size)
 //        val imageId = imageIds[randomIndex]
 
-        // Set the image to the ImageView
+
 
 
         val params = RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT)
 
+        //Once the timer ends, end_game() is called and the user is taken to the next activity
         fun end_game() {
             Toast.makeText(this, "Game Ended", Toast.LENGTH_SHORT).show()
             gameStarted = false
@@ -67,17 +70,22 @@ class NewGameActivity : AppCompatActivity() {
             startActivity(i)
             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
         }
+
+        // Once the game starts, timer is started and the status of 'gameStarted' is set to True
         fun start_game() {
 
             val initialTimeLeft = initialCountDown / 1000
             timeLeft_text.text = "Time Left: ${initialTimeLeft.toString()}"
+            //An object of the Timer class is created and its methods are overridden
 
             countDownTimer = object: CountDownTimer(initialCountDown, countDownInterval) {
+                //onTick() is called on every single tick of the timer
                 override fun onTick(p0: Long) {
                     val timeLeft = p0 / 1000
                     timeLeft_text.text = "Time Left: ${timeLeft.toString()}"
                 }
-
+                //onFinish() is called once the timer runs out.
+                //end_game() is called and the background music is stopped
                 override fun onFinish() {
 //                    timeLeft_text.text = "Game Over !"
                     end_game()
@@ -90,13 +98,12 @@ class NewGameActivity : AppCompatActivity() {
             gameStarted = true
         }
 
-//        imageView.setImageResource(R.mipmap.ic_channel_foreground)
-//        var countGhosts = (5..15).shuffled().last()
-//        val milliSeconds: Long = initialCountDown/countGhosts
-//        val seconds: Int = ((initialCountDown/1000).toInt()/countGhosts)
+
         val go_btn : Button = findViewById(R.id.go_button)
         val rule1 : View = findViewById(R.id.hotizontal_rule1)
         val rule2 : View = findViewById(R.id.hotizontal_rule2)
+
+        //method to animate the image to fade out
         fun fadeOutAndHideImage(img: ImageView, delay: Long) {
             val fadeOut = AlphaAnimation(1F, 0F)
             fadeOut.setInterpolator(AccelerateInterpolator())
@@ -112,14 +119,12 @@ class NewGameActivity : AppCompatActivity() {
             img.startAnimation(fadeOut)
         }
 
-
+        //The image appears at a random position on the screen everytime this method is called
+        //At the end of the method the same method is called recursively as long as the status of 'fgameStarted' remains to be 'True'
         fun toggleImage() {
             if (gameStarted == false) return
 
-//                var leftMargin = Random.nextInt(parentLayout.width - 200)//imageView.width)
-//                var topMargin = Random.nextInt(parentLayout.height - 200)//imageView.height)
-//                var rightMargin = Random.nextInt(parentLayout.width - 200)//imageView.width)
-//                var bottomMargin = Random.nextInt(parentLayout.height - 200)
+
 
             params.setMargins(0, 0, 0, 0)
             imageView.layoutParams = params
@@ -143,6 +148,8 @@ class NewGameActivity : AppCompatActivity() {
 //                parentLayout.removeView(imageView)
 
         }
+
+        //The game is started once the 'GO' button is clicked, the music starts running in the background and the timer appears
         go_btn.setOnClickListener{
             go_btn.visibility = View.INVISIBLE
 //            instruction_text.text = "width :${Random.nextInt(parentLayout.width - 250) + 50} height:${Random.nextInt(parentLayout.height - 500) + 100}"
@@ -159,9 +166,7 @@ class NewGameActivity : AppCompatActivity() {
             startService(audio)
 
         }
-//        imageView.setImageResource(R.mipmap.ic_channel_foreground)
-//        imageWidth = imageView.width
-//        imageHeight = imageView.height
+
     }
 
 }

@@ -23,7 +23,7 @@ import nl.dionsegijn.konfetti.core.emitter.Emitter
 import nl.dionsegijn.konfetti.core.models.Size
 import nl.dionsegijn.konfetti.xml.KonfettiView
 import java.util.concurrent.TimeUnit
-
+//This activity displays the Score of the User after they make their guess
 class ResultActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,8 +33,11 @@ class ResultActivity : AppCompatActivity() {
             WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_result)
 
+        //The result from the Validation Activity is fetched and checked
         var result = intent.extras?.get("result")
         var resultView = findViewById<TextView>(R.id.result)
+
+        //When the user makes the right guess
         if (result == "SUCCESS") {
             resultView.text = "Congratulations!!"
             resultView.setTextColor(ContextCompat.getColor(this, R.color.success))
@@ -66,7 +69,7 @@ class ResultActivity : AppCompatActivity() {
                 )
             ))
 
-
+    // When the user makes a wrong guess
         } else if (result == "FAIL") {
             resultView.text = "Oh no!!\nWrong Answer"
             resultView.setTextColor(ContextCompat.getColor(this, R.color.fail))
@@ -90,6 +93,10 @@ class ResultActivity : AppCompatActivity() {
         }
 
         findViewById<TextView>(R.id.score).text = score.toInt().toString()
+
+
+        // If the score obtained by the user is more than the previous highschore(fetched from the device memory) then the Highschore is updated with the
+        // new score and stored in the device memory
 
         val sharedPref = getSharedPreferences("game.HIGHSCORE", Context.MODE_PRIVATE)
         val highscore = sharedPref.getInt("HIGHSCORE",0)

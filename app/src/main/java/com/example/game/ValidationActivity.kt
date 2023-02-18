@@ -15,7 +15,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.LinearLayout
 import android.widget.TextView
-
+//This activity validates the user's guess
 
 class ValidationActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,18 +26,10 @@ class ValidationActivity : AppCompatActivity() {
             WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_validation)
 
+        //Once the user makes a guess, their answer is validated with the original answer and the
+        // result is passed to the next activity
         var submitValidation : Button = findViewById(R.id.submit_validation)
         submitValidation.setOnClickListener{
-            var validationLayout : LinearLayout = findViewById(R.id.validation_layout)
-
-            validationLayout.animate()
-                            .alpha(0f)
-                            .setDuration(500)
-                            .setListener(object : AnimatorListenerAdapter() {
-                                override fun onAnimationEnd(animation: Animator) {
-                                    validationLayout.visibility = View.INVISIBLE
-                                }
-                            })
 
             var spottedElements : EditText = findViewById(R.id.spotted_elements)
             var elementCount = intent.extras?.get("element_count")
